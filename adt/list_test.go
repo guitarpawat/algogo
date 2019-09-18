@@ -174,4 +174,5 @@ func TestLinkedList_Remove(t *testing.T) {
 	if firstList.Len() != 1 {
 		t.Errorf("expected len: %d, but get: %d", 5, firstList.Len())
 	}
+	tearDown()
 }
