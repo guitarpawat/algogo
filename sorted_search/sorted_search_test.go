@@ -53,11 +53,3 @@ func BenchmarkBinarySearch100000(b *testing.B) {
 func BenchmarkBinarySearch1000000(b *testing.B) {
 	benchFunc(b, 1000000, BinarySearch)
 }
-
-func BenchmarkBinarySearch10000000(b *testing.B) {
-	benchFunc(b, 10000000, BinarySearch)
-}
-
-func BenchmarkBinarySearch100000000(b *testing.B) {
-	benchFunc(b, 100000000, BinarySearch)
-}
