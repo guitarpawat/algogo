@@ -7,6 +7,8 @@
 --- PASS: TestLinkedList_InsertAndOrderElement (0.00s)
 === RUN   TestLinkedList_Remove
 --- PASS: TestLinkedList_Remove (0.00s)
+=== RUN   TestQueuedList
+--- PASS: TestQueuedList (0.00s)
 === RUN   TestNewStack
 --- PASS: TestNewStack (0.00s)
 === RUN   TestStack_Push
@@ -22,8 +24,7 @@
 === RUN   TestStack_Equals_NotComparable
 --- PASS: TestStack_Equals_NotComparable (0.00s)
 PASS
-coverage: 100.0% of statements in ../../algogo/...
-ok  	github.com/guitarpawat/algogo/adt	0.442s	coverage: 100.0% of statements in ../../algogo/...
+coverage: 98.8% of statements in ../../algogo/...
 
 Process finished with exit code 0
 ```

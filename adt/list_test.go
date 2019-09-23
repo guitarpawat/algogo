@@ -66,28 +66,28 @@ func TestLinkedList_InsertAndOrderElement(t *testing.T) {
 		t.Fatal("unexpected error:", err)
 	}
 	if secondListCheck != secondList {
-		t.Error("expected next:", secondList, ", but get", secondListCheck)
+		t.Error("expected NextEle:", secondList, ", but get", secondListCheck)
 	}
 	thirdListCheck, err := secondList.Next()
 	if err != nil {
 		t.Fatal("unexpected error:", err)
 	}
 	if thirdListCheck != thirdList {
-		t.Error("expected next:", thirdList, ", but get", thirdListCheck)
+		t.Error("expected NextEle:", thirdList, ", but get", thirdListCheck)
 	}
 	forthListCheck, err := thirdList.Next()
 	if err != nil {
 		t.Fatal("unexpected error:", err)
 	}
 	if forthListCheck != forthList {
-		t.Error("expected next:", forth, ", but get", forthListCheck)
+		t.Error("expected NextEle:", forth, ", but get", forthListCheck)
 	}
 	fifthListCheck, err := forthList.Next()
 	if err != nil {
 		t.Fatal("unexpected error:", err)
 	}
 	if forthListCheck != forthList {
-		t.Error("expected next:", fifthList, ", but get", fifthListCheck)
+		t.Error("expected NextEle:", fifthList, ", but get", fifthListCheck)
 	}
 	_, err = fifthList.Next()
 	if err == nil {

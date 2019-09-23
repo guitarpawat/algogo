@@ -4,7 +4,7 @@ import "errors"
 
 type LinkedList struct {
 	Element interface{}
-	next    *LinkedList
+	NextEle *LinkedList
 }
 
 func NewLinkedList(element interface{}) *LinkedList {
@@ -12,21 +12,21 @@ func NewLinkedList(element interface{}) *LinkedList {
 }
 
 func (list *LinkedList) HasNext() bool {
-	return list.next != nil
+	return list.NextEle != nil
 }
 
 func (list *LinkedList) Next() (*LinkedList, error) {
 	if !list.HasNext() {
-		return nil, errors.New("no next element")
+		return nil, errors.New("no NextEle element")
 	}
-	return list.next, nil
+	return list.NextEle, nil
 }
 
 func (list *LinkedList) Len() int {
 	if !list.HasNext() {
 		return 1
 	}
-	return 1 + list.next.Len()
+	return 1 + list.NextEle.Len()
 }
 
 func (list *LinkedList) Insert(element interface{}, index int) (*LinkedList, error) {
@@ -36,7 +36,7 @@ func (list *LinkedList) Insert(element interface{}, index int) (*LinkedList, err
 	if !list.HasNext() {
 		return nil, errors.New("insert index must be equal or less than len")
 	}
-	return list.next.Insert(element, index-1)
+	return list.NextEle.Insert(element, index-1)
 }
 
 func (list *LinkedList) Remove(index int) (interface{}, error) {
@@ -46,17 +46,17 @@ func (list *LinkedList) Remove(index int) (interface{}, error) {
 	} else if index == 1 {
 		return list.removeNext()
 	} else {
-		return list.next.Remove(index - 1)
+		return list.NextEle.Remove(index - 1)
 	}
 }
 
 func (list *LinkedList) insertNext(element interface{}) *LinkedList {
 	var next *LinkedList
 	if list.HasNext() {
-		next = list.next
+		next = list.NextEle
 	}
-	list.next = &LinkedList{element, next}
-	return list.next
+	list.NextEle = &LinkedList{element, next}
+	return list.NextEle
 }
 
 func (list *LinkedList) removeNext() (interface{}, error) {
@@ -64,12 +64,12 @@ func (list *LinkedList) removeNext() (interface{}, error) {
 		return nil, errors.New("list index out of bound")
 	}
 	var next *LinkedList
-	target := list.next.Element
-	// Preserves the next element of remove item
-	if list.next.HasNext() {
-		next = list.next.next
+	target := list.NextEle.Element
+	// Preserves the NextEle element of remove item
+	if list.NextEle.HasNext() {
+		next = list.NextEle.NextEle
 	}
-	// The next element of remove item is now the next element of this element
-	list.next = next
+	// The NextEle element of remove item is now the NextEle element of this element
+	list.NextEle = next
 	return target, nil
 }
